@@ -6,7 +6,7 @@ import { Stack } from "@chakra-ui/react";
 
 function App() {
   return (
-    <Stack>
+    <Stack >
       <Navbar />
       <Outlet />
       <Footer />

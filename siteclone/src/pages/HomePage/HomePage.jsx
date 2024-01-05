@@ -32,25 +32,30 @@ const home = () => {
         </Box>
         <Stack direction="column" spacing={6} justifyContent="center">
           <chakra.h1
-            fontSize="5xl"
+            fontSize="4xl"
             lineHeight={1}
             fontWeight="bold"
             textAlign="left"
           >
-            Soluções Tecnológicas
+            Soluções Tecnológicas para a Liberdade
           </chakra.h1>
           <Box>
             <Content>
-              A Cactus Tecnologia da Informação acredita na liberdade, em
-              qualquer lugar e a qualquer momento, por isso fornece soluções
-              inovadoras que realmente geram resultados nas corporações e na
-              vida das pessoas. Por isso não perca tempo, agende já uma visita
-              com um de nossos analistas e conheça as mais inovadoras soluções
-              em Tecnologia da Informação para tornar a sua empresa cada vez
-              mais organizada, produtiva e competitiva.
+              A CACTUS Tecnologia da Informação está comprometida com a
+              liberdade, acreditando que ela deve ser acessível a qualquer
+              momento e em qualquer lugar. Nesse contexto, oferecemos soluções
+              tecnológicas inovadoras que verdadeiramente impulsionam resultados
+              tanto nas corporações quanto na vida das pessoas.
+            </Content>
+            <Content mt={4}>
+              Maximize Seu Potencial Tecnológico! Agende Já uma Consulta com
+              Nossos Analistas e Desvende as Soluções Tecnológicas Mais
+              Inovadoras do Mercado. Estamos Comprometidos em Elevar o
+              Desempenho da Sua Empresa, Tornando-a Altamente Organizada,
+              Produtiva e Destacada na Competição Empresarial. Não Deixe para
+              Depois, Transforme Agora!
             </Content>
             <Content mt={4}>mais texto aqui.</Content>
-            <Content mt={4}>aqui também</Content>
           </Box>
           <Link href="#" fontSize="sm" color="blue.400">
             Cactus Tecnologia da Informação acredita na liberdade →

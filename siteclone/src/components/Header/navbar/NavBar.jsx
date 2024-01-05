@@ -1,7 +1,6 @@
 import {
   Box,
   Flex,
-  Avatar,
   HStack,
   Button,
   Text,
@@ -63,8 +62,8 @@ function Navbar() {
   };
 
   return (
-    <Box px={4} boxShadow="lg" width="100%">
-      <Flex h={16} alignItems="center" justifyContent="space-between" maxW={800} mx="auto">
+    <Box px={4} boxShadow="lg" width="100%" >
+      <Flex h={16} alignItems="center" justifyContent="space-between" maxW={950} mx="auto">
         <IconButton
           size="md"
           icon={isOpen ? <AiOutlineClose /> : <GiHamburgerMenu />}
@@ -83,7 +82,7 @@ function Navbar() {
           
         </HStack>
 
-        <HStack as="nav" spacing={1} display={{ base: 'none', md: 'flex' }} alignItems="center">
+        <HStack as="nav" spacing={1} display={{ base: 'none', md: 'flex' }} alignItems="center" fontWeight="600">
             {navLinks.map((link, index) => (
               <NavLink key={index} {...link} onClose={onClose} />
             ))}
@@ -99,7 +98,7 @@ function Navbar() {
                     py={1}
                     lineHeight="inherit"
                     fontSize="1em"
-                    fontWeight="normal"
+                    fontWeight="600"
                     rounded="md"
                     height="auto"
                     _hover={{ color: 'blue.400', bg: menuProps.bg }}
@@ -187,7 +186,7 @@ const NavLink = ({ name, path, onClose }) => {
 // eslint-disable-next-line react/prop-types
 const MenuLink = ({ name, path, icon, onClose }) => {
   return (
-    <Link href={path} onClick={() => onClose()}>
+    <Link href={path} onClick={() => onClose()} >
       <MenuItem _hover={{ color: 'blue.400', bg: useColorModeValue('gray.200', 'gray.700') }}>
         <HStack>
           <Icon as={icon} size={18} color="blue.400" />

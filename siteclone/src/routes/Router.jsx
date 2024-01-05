@@ -8,6 +8,7 @@ import TalentosPage from '../pages/TalentosPage/TalentosPage';
 import BlogPage from '../pages/Blog/BlogPage';
 import ErrorPage from '../pages/error/Error';
 import App from '../App';
+import Contact from '../components/form/Contact';
 
 const router = createBrowserRouter([
   {
@@ -43,6 +44,11 @@ const router = createBrowserRouter([
       {
         path: '/blog',
         element: <BlogPage />,
+        errorElement: <ErrorPage />,
+      },
+      {
+        path: '/contato',
+        element: <Contact />,
         errorElement: <ErrorPage />,
       },
     ])

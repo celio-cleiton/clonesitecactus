@@ -1,5 +1,14 @@
-import { Box, Heading, Flex, List, ListItem, Link, Text, Image } from '@chakra-ui/react';
-import cactus from '../../assets/cactusicone.png'
+import {
+  Box,
+  Heading,
+  Flex,
+  List,
+  ListItem,
+  Link,
+  Text,
+  Image,
+} from "@chakra-ui/react";
+import cactus from "../../assets/cactusicone.png";
 
 const Footer = () => {
   return (
@@ -21,20 +30,39 @@ const Footer = () => {
         borderColor="gray.300"
       >
         <Flex flexWrap="wrap" alignItems="start" justifyContent="space-between">
-          <Box w={{ base: '100%', sm: '50%', md: 'max-content' }} mb={{ base: '1.5rem', lg: '0' }}>
-            <Heading as="h5" color="gray.700" mb="0.5rem" fontSize="0.875rem" fontWeight="600" fontFamily={"sans-serif"}>
+          <Box
+            w={{ base: "100%", sm: "50%", md: "max-content" }}
+            mb={{ base: "1.5rem", lg: "0" }}
+          >
+            <Heading
+              as="h5"
+              color="gray.700"
+              mb="0.5rem"
+              fontSize="0.875rem"
+              fontWeight="600"
+              fontFamily={"sans-serif"}
+            >
               Cactus Tecnologia da Informação
             </Heading>
             <List lineHeight="2" justifyContent="center">
-              <LinkItem text="Careers" />
-              <LinkItem text="News" />
-              <LinkItem text="Policies" />
+              <LinkItem text="Carreiras" />
+              <LinkItem text="Novidades" />
+              <LinkItem text="Políticas" />
               <LinkItem text="Help" />
-              <LinkItem text="Diversity & Belonging" />
+              <LinkItem text="Diversidade e pertencimento" />
             </List>
           </Box>
-          <Box w={{ base: '100%', sm: '50%', md: 'max-content' }} mb={{ base: '1.5rem', lg: '0' }}>
-            <Heading as="h5" color="gray.700" mb="0.5rem" fontSize="0.875rem" fontWeight="600">
+          <Box
+            w={{ base: "100%", sm: "50%", md: "max-content" }}
+            mb={{ base: "1.5rem", lg: "0" }}
+          >
+            <Heading
+              as="h5"
+              color="gray.700"
+              mb="0.5rem"
+              fontSize="0.875rem"
+              fontWeight="600"
+            >
               Discover
             </Heading>
             <List lineHeight="2">
@@ -47,8 +75,17 @@ const Footer = () => {
               <LinkItem text="Airbnbmag" />
             </List>
           </Box>
-          <Box w={{ base: '100%', sm: '50%', md: 'max-content' }} mb={{ base: '1.5rem', lg: '0' }}>
-            <Heading as="h5" color="gray.700" mb="0.5rem" fontSize="0.875rem" fontWeight="600">
+          <Box
+            w={{ base: "100%", sm: "50%", md: "max-content" }}
+            mb={{ base: "1.5rem", lg: "0" }}
+          >
+            <Heading
+              as="h5"
+              color="gray.700"
+              mb="0.5rem"
+              fontSize="0.875rem"
+              fontWeight="600"
+            >
               Hosting
             </Heading>
             <List lineHeight="2">
@@ -61,11 +98,14 @@ const Footer = () => {
               <LinkItem text="Donations" isTag={true} tagText="New" />
             </List>
           </Box>
-          <Box w={{ base: '100%', sm: '50%', md: 'max-content' }} mb={{ base: '1.5rem', lg: '0' }}>
+          <Box
+            w={{ base: "100%", sm: "50%", md: "max-content" }}
+            mb={{ base: "1.5rem", lg: "0" }}
+          >
             <Flex justifyContent="start" mb="0.5rem" alignItems="baseline">
               <Link href="#" mr="0.5rem">
                 <svg
-                  style={{ width: '1rem', height: '1rem' }}
+                  style={{ width: "1rem", height: "1rem" }}
                   fill="#008F94"
                   viewBox="0 0 32 32"
                   role="img"
@@ -80,7 +120,7 @@ const Footer = () => {
               </Link>
               <Link href="#" mr="0.5rem">
                 <svg
-                  style={{ width: '1rem', height: '1rem' }}
+                  style={{ width: "1rem", height: "1rem" }}
                   fill="#008F94"
                   viewBox="0 0 32 32"
                   role="img"
@@ -95,7 +135,7 @@ const Footer = () => {
               </Link>
               <Link href="#" mr="0.5rem">
                 <svg
-                  style={{ width: '1rem', height: '1rem' }}
+                  style={{ width: "1rem", height: "1rem" }}
                   fill="#008F94"
                   viewBox="0 0 24 24"
                   role="img"
@@ -119,21 +159,21 @@ const Footer = () => {
       </Box>
       <Flex maxW="64rem" mx="auto" alignItems="center" px={10}>
         <Image
-          style={{ width: '1.25rem', height: '1.25rem' }}
+          style={{ width: "1.25rem", height: "1.25rem" }}
           viewBox="0 0 1000 1000"
           role="presentation"
           aria-hidden="true"
           focusable="false"
-          src={cactus} />
+          src={cactus}
+        />
         <Text color="gray.600" fontSize="0.875rem" pl="0.5rem">
-          &copy; 2005-2024 CACTUS Tecnologia da Informação LTDA. All rights reserved.
+          &copy; 2005-2024 CACTUS Tecnologia da Informação LTDA. All rights
+          reserved.
         </Text>
       </Flex>
     </Box>
   );
 };
-
-
 
 // eslint-disable-next-line react/prop-types
 const LinkItem = ({ text, isTag = false, tagText }) => {
@@ -143,7 +183,7 @@ const LinkItem = ({ text, isTag = false, tagText }) => {
         fontWeight="600"
         href="#"
         color="rgba(113, 128, 150, 1)"
-        _hover={{ color: 'green.600' }}
+        _hover={{ color: "green.600" }}
       >
         {text}
       </Link>
