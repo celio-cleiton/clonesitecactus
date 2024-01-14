@@ -1,33 +1,40 @@
-import { ChakraProvider, Box, Heading, Text, Flex, Image, SimpleGrid, Container } from '@chakra-ui/react';
+import {
+  ChakraProvider,
+  Box,
+  Heading,
+  Text,
+  Flex,
+  Image,
+  SimpleGrid,
+  Container,
+  Button,
+} from "@chakra-ui/react";
+import { Link } from "react-router-dom";
 
 const teamMembers = [
   {
-    name: 'Junior Silva',
-    position: 'Desenvolvedor Full Stack',
-    bio:
-      'Com vasta experiência em desenvolvimento web, João é especialista em criar soluções robustas e escaláveis. Ele é apaixonado por tecnologia e está sempre buscando aprender algo novo.',
-    image: '/joao.jpg',
+    name: "Junior Silva",
+    position: "Dev Full Stack",
+    bio: "Com vasta experiência em desenvolvimento web, Junior é especialista em criar soluções robustas e escaláveis. Ele é apaixonado por tecnologia e está sempre buscando aprender algo novo.",
+    image: "https://bit.ly/ryan-florence",
   },
   {
-    name: 'Maria Oliveira',
-    position: 'Designer de UI',
-    bio:
-      'Maria é uma designer criativa com um olho apurado para detalhes. Seu design centrado no usuário e suas habilidades excepcionais fazem dela uma peça-chave em nossos projetos de interface.',
-    image: '/maria.jpg',
+    name: "Kent Dodds",
+    position: "Designer de UI/UX",
+    bio: "Kent é uma designer criativo com um olho apurado para detalhes. Seu design centrado no usuário e suas habilidades excepcionais fazem dele uma peça-chave em nossos projetos de interface.",
+    image: "https://bit.ly/kent-c-dodds",
   },
   {
-    name: 'Dolores Costa',
-    position: 'Designer de UX',
-    bio:
-      'Maria é uma designer criativa com um olho apurado para detalhes. Seu design centrado no usuário e suas habilidades excepcionais fazem dela uma peça-chave em nossos projetos de interface.',
-    image: '/maria.jpg',
+    name: "Sage Adebayo",
+    position: "Dev Back-End",
+    bio: "Sage é uma Back-end criativo com um olho apurado para detalhes e segurança. Seus projetos centrado no banco de dados e suas habilidades excepcionais fazem dele uma peça-chave em nossos projetos de Back End.",
+    image: "https://bit.ly/sage-adebayo",
   },
   {
-    name: 'Oliveira Silva',
-    position: 'Dev FullStack',
-    bio:
-      'Maria é uma designer criativa com um olho apurado para detalhes. Seu design centrado no usuário e suas habilidades excepcionais fazem dela uma peça-chave em nossos projetos de interface.',
-    image: '/maria.jpg',
+    name: "Oliveira Silva",
+    position: "Dev Front End",
+    bio: "Oliveira é um dev Front End bem criativo com um olho apurado para detalhes. Seu desenvolvimento sempre centrado na experiência do usuário e suas habilidades excepcionais fazem dele um peça-chave em nossos projetos de interface.",
+    image: "https://bit.ly/dan-abramov",
   },
   // Adicione mais membros da equipe conforme necessário
 ];
@@ -40,7 +47,10 @@ const TalentosPage = () => {
           <Heading as="h1" fontSize="4xl" mb="4">
             Conheça Nossa Equipe de Talentos
           </Heading>
-          <Text fontSize="xl">Conheça as mentes brilhantes por trás do sucesso da CACTUS Tecnologia da Informação.</Text>
+          <Text fontSize="xl">
+            Conheça as mentes brilhantes por trás do sucesso da CACTUS
+            Tecnologia da Informação.
+          </Text>
         </Box>
 
         <Container maxW="container.xl" mt="8">
@@ -55,7 +65,7 @@ const TalentosPage = () => {
                 flexDirection="column"
                 alignItems="center"
                 transition="transform 0.3s"
-                _hover={{ transform: 'scale(1.05)' }}
+                _hover={{ transform: "scale(1.05)" }}
               >
                 <Image
                   src={member.image}
@@ -75,6 +85,18 @@ const TalentosPage = () => {
                 <Text fontSize="sm" color="gray.500" textAlign="center">
                   {member.bio}
                 </Text>
+                <Link to={`/talentos/${member.name}`}>
+                <Button
+                  colorScheme="gray"
+                  variant="outline"
+                  rounded="md"
+                  size="lg"
+                  height="2rem"
+                  fontSize="1rem"
+                >
+                  Details
+                </Button>
+                </Link>
               </Flex>
             ))}
           </SimpleGrid>

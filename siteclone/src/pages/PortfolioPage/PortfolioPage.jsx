@@ -69,9 +69,7 @@ const PortfolioPage = () => {
 
         {/* Adicione mais seções conforme necessário, como Estudos de Caso, Testemunhos, etc. */}
 
-        <Box as="footer" textAlign="center" p="4">
-          <Text fontSize="sm">&copy; 2023 CACTUS Tecnologia da Informação. Todos os direitos reservados.</Text>
-        </Box>
+        
       </Box>
     </ChakraProvider>
   );

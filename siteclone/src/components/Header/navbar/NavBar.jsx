@@ -16,7 +16,6 @@ import {
   useColorModeValue,
   Image
 } from '@chakra-ui/react';
-// Here we have used react-icons package for the icons
 import { GiHamburgerMenu } from 'react-icons/gi';
 import { AiOutlineClose, AiTwotoneThunderbolt } from 'react-icons/ai';
 import { BiChevronDown } from 'react-icons/bi';
@@ -54,8 +53,10 @@ const dropdownLinks = [
 ];
 
 function Navbar() {
+  // useDisclosure hook para controlar o estado do menu.
   const { isOpen, onOpen, onClose } = useDisclosure();
 
+  // Propriedades de estilo para o menu.
   const menuProps = {
     bg: useColorModeValue('gray.200', 'gray.700'),
     color: useColorModeValue('blue.500', 'blue.200')
@@ -72,7 +73,9 @@ function Navbar() {
           onClick={isOpen ? onClose : onOpen}
         />
         <HStack spacing={8} alignItems="center">
+          {/* Logotipo da empresa */}
           <Image
+            alt="Logo da Empresa"
             size="sm"
             height={'50'}
             showBorder={true}
@@ -82,6 +85,7 @@ function Navbar() {
           
         </HStack>
 
+        {/* Links de navegação na barra */}
         <HStack as="nav" spacing={1} display={{ base: 'none', md: 'flex' }} alignItems="center" fontWeight="600">
             {navLinks.map((link, index) => (
               <NavLink key={index} {...link} onClose={onClose} />
@@ -90,6 +94,7 @@ function Navbar() {
             <Menu autoSelect={false} isLazy>
               {({ isOpen, onClose }) => (
                 <>
+                {/* Botão do menu de projetos com ícone de seta para baixo */}
                   <MenuButton
                     as={Button}
                     variant="ghost"
@@ -111,10 +116,11 @@ function Navbar() {
                         w={5}
                         ml={1}
                         transition="all .25s ease-in-out"
-                        transform={isOpen ? 'rotate(180deg)' : ''}
+                        rotate={isOpen ? 180 : 0}
                       />
                     </Flex>
                   </MenuButton>
+                 {/* Lista de opções do dropdown */}
                   <MenuList
                     zIndex={5}
                     bg={useColorModeValue('rgb(255, 255, 255)', 'rgb(26, 32, 44)')}
@@ -125,6 +131,7 @@ function Navbar() {
                     )}
                   >
                     {dropdownLinks.map((link, index) => (
+                      // Componente MenuLink para cada opção do dropdown
                       <MenuLink
                         key={index}
                         name={link.name}

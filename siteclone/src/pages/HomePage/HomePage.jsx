@@ -9,7 +9,7 @@ import {
   Box,
   Link,
 } from "@chakra-ui/react";
-// import homeImagem from '../../assets/homeImagem.jpg'
+import HomeI from '../../assets/homeImagem.jpg';
 
 const home = () => {
   return (
@@ -23,9 +23,7 @@ const home = () => {
             h="100%"
             minW={{ base: "auto", md: "25rem" }}
             maxH="20rem"
-            src={
-              "https://instagram.fjdo10-2.fna.fbcdn.net/v/t39.30808-6/323437116_571355594857415_1941589776885068781_n.jpg?stp=dst-jpg_e15&efg=eyJ2ZW5jb2RlX3RhZyI6ImltYWdlX3VybGdlbi4yMDAweDIwMDAuc2RyIn0&_nc_ht=instagram.fjdo10-2.fna.fbcdn.net&_nc_cat=111&_nc_ohc=o1zHZamNcwcAX_5U-pU&edm=ABmJApAAAAAA&ccb=7-5&ig_cache_key=MzAwOTY1ODAwMzE0MTk3MTg2MA%3D%3D.2-ccb7-5&oh=00_AfAL5OARAq8WNM_p1uLMoDWAMyBTvujEN42fF3Ov99_ayg&oe=659A642E&_nc_sid=b41fef"
-            }
+            src={HomeI}
             rounded="md"
             fallback={<Skeleton />}
           />
