@@ -1,81 +1,82 @@
-import {
-    chakra,
-    Box,
-    Stack,
-    Link,
-    HStack,
-    Text,
-    Container,
-    Icon,
-    Avatar,
-    Tooltip,
-    Divider,
-    useColorModeValue
-  } from '@chakra-ui/react';
-  // Here we have used react-icons package for the icons
-  import { AiFillGithub } from 'react-icons/ai';
-  
-  const ContactDetails = () => {
+import { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
+import { chakra, Box, Text, Container, Divider, Avatar, useColorModeValue } from '@chakra-ui/react';
+import axios from 'axios';
+
+const ContactDetails = () => {
+  const { name } = useParams();
+  const [memberDetails, setMemberDetails] = useState(null);
+
+  useEffect(() => {
+    const fetchMemberDetailsFromAPI = async () => {
+      try {
+        const response = await axios.get(`https://swapi.dev/api/people/?search=${name}`);
+        const member = response.data.results[0];
+
+        if (member) {
+          const details = {
+            name: member.name,
+            position: 'Desconhecido',
+            bio: `Altura: ${member.height} cm, Peso: ${member.mass} kg`,
+            image: `https://via.placeholder.com/150`,
+            genero: `${member.gender} `,
+          };
+          setMemberDetails(details);
+        } else {
+          console.error('Membro não encontrado');
+        }
+      } catch (error) {
+        console.error('Erro ao buscar dados da API:', error);
+        setMemberDetails(null);
+      }
+    };
+
+    fetchMemberDetailsFromAPI();
+  }, [name]);
+
+  if (!memberDetails) {
     return (
-      <Container maxW="5xl" p={{ base: 5, md: 6 }}>
-        <Stack
-          w="17rem"
-          spacing={2}
-          p={4}
-          border="1px solid"
-          borderColor={useColorModeValue('gray.400', 'gray.600')}
-          rounded="md"
-          margin="0 auto"
-          _hover={{
-            boxShadow: useColorModeValue(
-              '0 4px 6px rgba(160, 174, 192, 0.6)',
-              '0 4px 6px rgba(9, 17, 28, 0.4)'
-            )
-          }}
-        >
-          <HStack justifyContent="space-between" alignItems="baseline">
-            <Tooltip
-              label="Lahore, Pakistan"
-              aria-label="Lahore, Pakistan"
-              placement="right-end"
-              size="sm"
-              // Sizes for Tooltip are not implemented in the default theme. You can extend the theme to implement them
-            >
-              <Box pos="relative">
-                <Avatar
-                  src="https://avatars2.githubusercontent.com/u/37842853?v=4"
-                  name="Muhammad Ahmad"
-                  size="xl"
-                  borderRadius="md"
-                />
-                <Avatar
-                  src="https://flagcdn.com/pk.svg"
-                  name="Pakistan Flag"
-                  size="xs"
-                  borderRadius="full"
-                  pos="absolute"
-                  bottom={0}
-                  right="-12px"
-                />
-              </Box>
-            </Tooltip>
-            <Link isExternal href="https://github.com/MA-Ahmad">
-              <Icon as={AiFillGithub} w={6} h={6} />
-            </Link>
-          </HStack>
-          <chakra.h1 fontSize="xl" fontWeight="bold">
-            Muhammad Ahmad
-          </chakra.h1>
-          <Text fontSize="md" color="gray.500">
-            Software Engineer, Creator of TemplatesKart
-          </Text>
-          <Divider />
-          <Text fontSize="md" color="gray.500">
-            Sports lover ⚽️, exercise addict 🏋 and lifelong learner 👨🏻‍💻
-          </Text>
-        </Stack>
-      </Container>
+      <Box>
+        <h1>Oops!</h1>
+        <Text>Desculpe, ocorreu um erro inesperado ao buscar os detalhes do membro.</Text>
+      </Box>
     );
-  };
-  
-  export default ContactDetails;
+  }
+
+  return (
+    <Container maxW="3xl" p={{ base: 5, md: 6 }}>
+      <Box
+        p={8}
+        bg={useColorModeValue('white', 'gray.800')}
+        boxShadow="2xl"
+        rounded="lg"
+        position="relative"
+        overflow="hidden"
+      >
+        <Avatar
+          size="2xl"
+          name={memberDetails.name}
+          src={memberDetails.image}
+          alt={memberDetails.name}
+          mb={4}
+        />
+        <chakra.h1
+          fontSize="xl"
+          fontWeight="bold"
+          color={useColorModeValue('gray.800', 'white')}
+        >
+          {memberDetails.name}
+        </chakra.h1>
+        <Text fontSize="md" color="gray.500">
+          {memberDetails.position}
+        </Text>
+        <Divider mt={4} mb={4} />
+        <Text fontSize="md" color="gray.500">
+          {memberDetails.bio}
+        </Text>
+      </Box>
+    </Container>
+  );
+};
+
+export default ContactDetails;

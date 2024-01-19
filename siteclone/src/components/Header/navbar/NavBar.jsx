@@ -2,28 +2,18 @@ import {
   Box,
   Flex,
   HStack,
-  Button,
-  Text,
   Link,
-  Menu,
-  MenuButton,
-  MenuList,
-  MenuItem,
   Stack,
-  Icon,
+  Image,
   IconButton,
   useDisclosure,
   useColorModeValue,
-  Image
 } from '@chakra-ui/react';
 import { GiHamburgerMenu } from 'react-icons/gi';
-import { AiOutlineClose, AiTwotoneThunderbolt } from 'react-icons/ai';
-import { BiChevronDown } from 'react-icons/bi';
-import { MdTimeline } from 'react-icons/md';
-import { BsBook } from 'react-icons/bs';
-import  Logo  from '../../../assets/logo.png';
+import { AiOutlineClose } from 'react-icons/ai';
+import Logo from '../../../assets/logo.png';
 
-
+// Links de navegação na barra
 const navLinks = [
   { name: 'Home', path: '/' },
   { name: 'Quem Somos', path: 'quemSomos' },
@@ -34,37 +24,20 @@ const navLinks = [
   { name: 'Contato', path: '/contato' },
 ];
 
-const dropdownLinks = [
-  {
-    name: 'Projects',
-    path: '#',
-    icon: MdTimeline
-  },
-  {
-    name: 'Tech Stack',
-    path: '#',
-    icon: AiTwotoneThunderbolt
-  },
-  {
-    name: 'Open Source',
-    path: '#',
-    icon: BsBook
-  }
-];
-
-function Navbar() {
+const Navbar = () => {
   // useDisclosure hook para controlar o estado do menu.
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   // Propriedades de estilo para o menu.
   const menuProps = {
     bg: useColorModeValue('gray.200', 'gray.700'),
-    color: useColorModeValue('blue.500', 'blue.200')
+    color: useColorModeValue('blue.500', 'blue.200'),
   };
 
   return (
-    <Box px={4} boxShadow="lg" width="100%" >
+    <Box px={4} boxShadow="lg" width="100%">
       <Flex h={16} alignItems="center" justifyContent="space-between" maxW={950} mx="auto">
+        {/* Botão para abrir o menu em telas menores */}
         <IconButton
           size="md"
           icon={isOpen ? <AiOutlineClose /> : <GiHamburgerMenu />}
@@ -72,83 +45,21 @@ function Navbar() {
           display={['inherit', 'inherit', 'none']}
           onClick={isOpen ? onClose : onOpen}
         />
+        {/* Logotipo da empresa */}
         <HStack spacing={8} alignItems="center">
-          {/* Logotipo da empresa */}
-          <Image
-            alt="Logo da Empresa"
-            size="sm"
-            height={'50'}
-            showBorder={true}
-            borderColor="blue.400"
-            src={Logo}
-          />
-          
+          <Link href="/">
+            <Image alt="Logo da Empresa" size="sm" height="50" borderColor="blue.400" src={Logo} />
+          </Link>
         </HStack>
-
         {/* Links de navegação na barra */}
         <HStack as="nav" spacing={1} display={{ base: 'none', md: 'flex' }} alignItems="center" fontWeight="600">
-            {navLinks.map((link, index) => (
-              <NavLink key={index} {...link} onClose={onClose} />
-            ))}
-            {/* Dropdown Menu */}
-            <Menu autoSelect={false} isLazy>
-              {({ isOpen, onClose }) => (
-                <>
-                {/* Botão do menu de projetos com ícone de seta para baixo */}
-                  <MenuButton
-                    as={Button}
-                    variant="ghost"
-                    size="sm"
-                    px={3}
-                    py={1}
-                    lineHeight="inherit"
-                    fontSize="1em"
-                    fontWeight="600"
-                    rounded="md"
-                    height="auto"
-                    _hover={{ color: 'blue.400', bg: menuProps.bg }}
-                  >
-                    <Flex alignItems="center">
-                      <Text>Projetos</Text>
-                      <Icon
-                        as={BiChevronDown}
-                        h={5}
-                        w={5}
-                        ml={1}
-                        transition="all .25s ease-in-out"
-                        rotate={isOpen ? 180 : 0}
-                      />
-                    </Flex>
-                  </MenuButton>
-                 {/* Lista de opções do dropdown */}
-                  <MenuList
-                    zIndex={5}
-                    bg={useColorModeValue('rgb(255, 255, 255)', 'rgb(26, 32, 44)')}
-                    border="none"
-                    boxShadow={useColorModeValue(
-                      '2px 4px 6px 2px rgba(160, 174, 192, 0.6)',
-                      '2px 4px 6px 2px rgba(9, 17, 28, 0.6)'
-                    )}
-                  >
-                    {dropdownLinks.map((link, index) => (
-                      // Componente MenuLink para cada opção do dropdown
-                      <MenuLink
-                        key={index}
-                        name={link.name}
-                        path={link.path}
-                        icon={link.icon}
-                        onClose={onClose}
-                      />
-                    ))}
-                  </MenuList>
-                </>
-              )}
-            </Menu>
-          </HStack>
+          {navLinks.map((link, index) => (
+            <NavLink key={index} {...link} onClose={onClose} />
+          ))}
+        </HStack>
       </Flex>
-
-      {/* Mobile Screen Links */}
-      {isOpen ? (
+      {/* Links para telas menores */}
+      {isOpen && (
         <Box pb={4} display={['inherit', 'inherit', 'none']}>
           <Stack as="nav" spacing={2}>
             {navLinks.map((link, index) => (
@@ -156,18 +67,17 @@ function Navbar() {
             ))}
           </Stack>
         </Box>
-      ) : null}
+      )}
     </Box>
   );
-}
+};
 
-
-
-// eslint-disable-next-line react/prop-types
+// Componente de link para navegação
 const NavLink = ({ name, path, onClose }) => {
-  const link = {
+  // Propriedades de estilo para o link
+  const linkProps = {
     bg: useColorModeValue('gray.200', 'gray.700'),
-    color: useColorModeValue('blue.500', 'blue.200')
+    color: useColorModeValue('blue.500', 'blue.200'),
   };
 
   return (
@@ -179,27 +89,12 @@ const NavLink = ({ name, path, onClose }) => {
       rounded="md"
       _hover={{
         textDecoration: 'none',
-        bg: link.bg,
-        color: link.color
+        bg: linkProps.bg,
+        color: linkProps.color,
       }}
-      onClick={() => onClose()}
+      onClick={onClose}
     >
       {name}
-    </Link>
-  );
-};
-
-
-// eslint-disable-next-line react/prop-types
-const MenuLink = ({ name, path, icon, onClose }) => {
-  return (
-    <Link href={path} onClick={() => onClose()} >
-      <MenuItem _hover={{ color: 'blue.400', bg: useColorModeValue('gray.200', 'gray.700') }}>
-        <HStack>
-          <Icon as={icon} size={18} color="blue.400" />
-          <Text>{name}</Text>
-        </HStack>
-      </MenuItem>
     </Link>
   );
 };

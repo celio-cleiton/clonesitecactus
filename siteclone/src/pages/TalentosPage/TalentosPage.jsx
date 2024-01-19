@@ -1,45 +1,32 @@
-import {
-  ChakraProvider,
-  Box,
-  Heading,
-  Text,
-  Flex,
-  Image,
-  SimpleGrid,
-  Container,
-  Button,
-} from "@chakra-ui/react";
+import { useEffect, useState } from 'react';
+import { ChakraProvider, Box, Heading, Text, Flex, Image, SimpleGrid, Container, Button } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
-
-const teamMembers = [
-  {
-    name: "Junior Silva",
-    position: "Dev Full Stack",
-    bio: "Com vasta experiência em desenvolvimento web, Junior é especialista em criar soluções robustas e escaláveis. Ele é apaixonado por tecnologia e está sempre buscando aprender algo novo.",
-    image: "https://bit.ly/ryan-florence",
-  },
-  {
-    name: "Kent Dodds",
-    position: "Designer de UI/UX",
-    bio: "Kent é uma designer criativo com um olho apurado para detalhes. Seu design centrado no usuário e suas habilidades excepcionais fazem dele uma peça-chave em nossos projetos de interface.",
-    image: "https://bit.ly/kent-c-dodds",
-  },
-  {
-    name: "Sage Adebayo",
-    position: "Dev Back-End",
-    bio: "Sage é uma Back-end criativo com um olho apurado para detalhes e segurança. Seus projetos centrado no banco de dados e suas habilidades excepcionais fazem dele uma peça-chave em nossos projetos de Back End.",
-    image: "https://bit.ly/sage-adebayo",
-  },
-  {
-    name: "Oliveira Silva",
-    position: "Dev Front End",
-    bio: "Oliveira é um dev Front End bem criativo com um olho apurado para detalhes. Seu desenvolvimento sempre centrado na experiência do usuário e suas habilidades excepcionais fazem dele um peça-chave em nossos projetos de interface.",
-    image: "https://bit.ly/dan-abramov",
-  },
-  // Adicione mais membros da equipe conforme necessário
-];
+import axios from 'axios';
 
 const TalentosPage = () => {
+  const [teamMembers, setTeamMembers] = useState([]);
+
+  useEffect(() => {
+    const fetchTeamMembersFromAPI = async () => {
+      try {
+        const response = await axios.get('https://swapi.dev/api/people/');
+        const apiData = response.data.results.map(person => ({
+          name: person.name,
+          position: 'Desconhecido', // Adapte conforme necessário
+          bio: `Altura: ${person.height} cm, Peso: ${person.mass} kg`, // Adapte conforme necessário
+          image: `https://via.placeholder.com/150`, // Substitua por uma imagem real se a API fornecer
+          genero:`${person.gender} `,
+        }));
+        setTeamMembers(apiData);
+      } catch (error) {
+        console.error('Erro ao buscar dados da API:', error);
+        setTeamMembers([]);
+      }
+    };
+
+    fetchTeamMembersFromAPI();
+  }, []);
+
   return (
     <ChakraProvider>
       <Box bg="gray.100" minH="100vh">
@@ -85,24 +72,22 @@ const TalentosPage = () => {
                 <Text fontSize="sm" color="gray.500" textAlign="center">
                   {member.bio}
                 </Text>
-                <Link to={`/talentos/${member.name}`}>
-                <Button
-                  colorScheme="gray"
-                  variant="outline"
-                  rounded="md"
-                  size="lg"
-                  height="2rem"
-                  fontSize="1rem"
-                >
-                  Details
-                </Button>
+                <Link to={`/talentos/${encodeURIComponent(member.name)}`}>
+                  <Button
+                    colorScheme="gray"
+                    variant="outline"
+                    rounded="md"
+                    size="lg"
+                    height="2rem"
+                    fontSize="1rem"
+                  >
+                    Details
+                  </Button>
                 </Link>
               </Flex>
             ))}
           </SimpleGrid>
         </Container>
-
-        {/* Adicione mais seções conforme necessário, como Testemunhos, Vagas Disponíveis, etc. */}
       </Box>
     </ChakraProvider>
   );

@@ -53,7 +53,6 @@ const home = () => {
               Produtiva e Destacada na Competição Empresarial. Não Deixe para
               Depois, Transforme Agora!
             </Content>
-            <Content mt={4}>mais texto aqui.</Content>
           </Box>
           <Link href="#" fontSize="sm" color="blue.400">
             Cactus Tecnologia da Informação acredita na liberdade →

@@ -39,7 +39,7 @@ const articles = [
 
 const Blog = () => {
   return (
-    <Container p={{ base: 5, md: 10 }}>
+    <Container p={{ base: 5, md: 10 }} alignItems={'center'}>
       <h1>Blog</h1>
       <VStack spacing={8} w={{ base: 'auto', md: '2xl' }}>
         {articles.map((article, index) => (
