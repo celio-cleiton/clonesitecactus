@@ -38,17 +38,17 @@ npm start
 4. Abra o navegador e acesse http://localhost:3000.
 ## Capturas de Tela
 
-Pagina Home![Pagina Home](/src/assets/screenshots/pagina%20home.png)
+Pagina Home![Pagina Home](https://github.com/celio-cleiton/clonesitecactus/blob/main/siteclone/src/assets/screenshots/pagina%20home.png)
 
-Pagina Quem Somos![Pagina Quem Somos](/src/assets/screenshots/pagina%20quemSomos.png)
+Pagina Quem Somos![Pagina Quem Somos](https://github.com/celio-cleiton/clonesitecactus/blob/main/siteclone/src/assets/screenshots/pagina%20quemSomos.png)
 
-Pagina Soluções![Pagina Soluções](/src/assets/screenshots/pagina%20solucoes.png)
+Pagina Soluções![Pagina Soluções](https://github.com/celio-cleiton/clonesitecactus/blob/main/siteclone/src/assets/screenshots/pagina%20solucoes.png)
 
-Pagina Portfolio![Pagina Portfolio](/src/assets/screenshots/pagina%20portfolio.png)
+Pagina Portfolio![Pagina Portfolio](https://github.com/celio-cleiton/clonesitecactus/blob/main/siteclone/src/assets/screenshots/pagina%20portfolio.png)
 
-Pagina Talentos![Pagina Talentos](/src/assets/screenshots/pagina%20talentos.png)
+Pagina Talentos![Pagina Talentos](https://github.com/celio-cleiton/clonesitecactus/blob/main/siteclone/src/assets/screenshots/pagina%20talentos.png)
 
-Pagina Contato![Pagina Contato](/src/assets/screenshots/pagina%20contato.png)
+Pagina Contato![Pagina Contato](https://github.com/celio-cleiton/clonesitecactus/blob/main/siteclone/src/assets/screenshots/pagina%20contato.png)
 
 ## Contribuição
 
