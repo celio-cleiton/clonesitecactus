@@ -19,9 +19,9 @@ const navLinks = [
   { name: 'Quem Somos', path: 'quemSomos' },
   { name: 'Soluções', path: 'solucoes' },
   { name: 'Portfolio', path: 'portfolio' },
-  { name: 'Talentos', path: '/talentos' },
-  { name: 'Blog', path: '/blog' },
-  { name: 'Contato', path: '/contato' },
+  { name: 'Talentos', path: 'talentos' },
+  { name: 'Blog', path: 'blog' },
+  { name: 'Contato', path: 'contato' },
 ];
 
 const Navbar = () => {
