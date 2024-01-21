@@ -70,13 +70,15 @@ Site Oficial da Cactus Tecnologia. [Click Aqui.](https://www.cactustecnologia.co
 
 React.js. [Click Aqui.](https://react.dev/)
 
+Vite.js. [Click Aqui.](https://vitejs.dev/)
+
 Chakra UI. [Click Aqui.](https://chakra-ui.com/)
-## API Utilizada 
+## API Utilizada
 
 O projeto utiliza uma API externa para obter informações sobre personagens de Star Wars. A API escolhida é a SWAPI [Star Wars API](https://swapi.dev/), que fornece dados sobre diversos aspectos do universo Star Wars, incluindo personagens, planetas, naves espaciais, entre outros.
 ## Como a API foi Utilizada
 
-Para integrar a API ao projeto, foi feito uso da biblioteca Axios para realizar requisições HTTP. A API é consultada na página inicial do site, onde são exibidos os personagens de (Star Wars) no caso são os "colaboradores da empresa". Cada personagem é exibido como um card, e ao clicar no botão "Detalhes", é aberto um modal com mais informações sobre o personagem.
+Para integrar a API ao projeto, foi feito uso da biblioteca Axios para realizar requisições HTTP. A API é consultada na página inicial do site, onde são exibidos os personagens de Star Wars. Cada personagem é exibido como um card, e ao clicar no botão "Detalhes", é aberto um modal com mais informações sobre o personagem.
 
 A aplicação faz uma requisição à SWAPI para obter os dados dos personagens e os exibe dinamicamente na página. O modal, por sua vez, é alimentado com os detalhes específicos do personagem selecionado, trazendo informações como altura, peso, ano de nascimento, entre outras.
 
