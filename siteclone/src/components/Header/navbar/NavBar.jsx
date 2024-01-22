@@ -12,16 +12,17 @@ import {
 import { GiHamburgerMenu } from 'react-icons/gi';
 import { AiOutlineClose } from 'react-icons/ai';
 import Logo from '../../../assets/logo.png';
+import { Link as RouterLink } from 'react-router-dom';
 
 // Links de navegação na barra
 const navLinks = [
   { name: 'Home', path: '/' },
-  { name: 'Quem Somos', path: 'quemSomos' },
-  { name: 'Soluções', path: 'solucoes' },
-  { name: 'Portfolio', path: 'portfolio' },
-  { name: 'Talentos', path: 'talentos' },
-  { name: 'Blog', path: 'blog' },
-  { name: 'Contato', path: 'contato' },
+  { name: 'Quem Somos', path: '/quemSomos' },
+  { name: 'Soluções', path: '/solucoes' },
+  { name: 'Portfolio', path: '/portfolio' },
+  { name: 'Talentos', path: '/talentos' },
+  { name: 'Blog', path: '/blog' },
+  { name: 'Contato', path: '/contato' },
 ];
 
 const Navbar = () => {
@@ -81,20 +82,21 @@ const NavLink = ({ name, path, onClose }) => {
   };
 
   return (
-    <Link
-      href={path}
-      px={3}
-      py={1}
-      lineHeight="inherit"
-      rounded="md"
-      _hover={{
-        textDecoration: 'none',
-        bg: linkProps.bg,
-        color: linkProps.color,
-      }}
+    <Link px={3}
+    py={1}
+    lineHeight="inherit"
+    rounded="md"
+    _hover={{
+      textDecoration: 'none',
+      bg: linkProps.bg,
+      color: linkProps.color,
+    }}>
+    <RouterLink
+      to={path}
       onClick={onClose}
     >
       {name}
+    </RouterLink>
     </Link>
   );
 };
